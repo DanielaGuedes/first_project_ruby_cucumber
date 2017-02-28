@@ -5,6 +5,7 @@ Funcionalidade: Login na Youse
   Desejo me logar na minha conta
   Para poder acessar a cotação de seguros
 
+  @login
   Cenario: Login
 
     Dado que eu esteja no site da Youse "https://www.youse.com.br".
@@ -19,11 +20,15 @@ Funcionalidade: Login na Youse
   # Como usuario logado
   # Desejo fazer o logout na minha conta
 
-#  @Login
-#  Cenario: Logout
-#
-#    Dado que eu esteja no site da Youse "https://www.youse.com.br".
-#    Quando clicar em Minha Conta apos o login.
-#    E efetuar o logout.
-#    Então validar o logout efetuado com sucesso.
+  @logout
+  Cenario: Logout
+
+    Dado que eu esteja no site da Youse "https://www.youse.com.br".
+    E clicar em Minha Conta.
+    Quando preencher o campo email.
+    E selecionar o proximo passo.
+    E preencher o campo senha.
+    E selecionar a opcao entrar.
+    E efetuar o logout.
+    Então validar o logout efetuado com sucesso.
 

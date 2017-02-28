@@ -11,9 +11,7 @@ require "capybara/rspec"
 BROWSER = ENV['BROWSER']
 
 ENVIRONMENT_TYPE = ENV['ENVIRONMENT_TYPE']
-email = ENV['EMAIL']
 puts(BROWSER)
-puts(email)
 
 Capybara.register_driver :selenium do |app|
   if BROWSER.eql?('chrome')

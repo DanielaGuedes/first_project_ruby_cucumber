@@ -23,12 +23,16 @@ end
 When(/^preencher o campo senha\.$/) do
   password = ENV['PASS']
   result = @context.inputSenha password
+  # valida o preenchimento do campo.
   expect(result.value).to eql(password)
 end
 
 When(/^validar o acessar do usuario\.$/) do
-  user_elem = @context.verified_main_menu
-  #expect(user_elem).to have_css(page.main_menu :data-email => 'reiload@gmail.com')
+  user = ENV['USER']
+  result = @context.verified_main_menu
+  puts(result.text)
+  # Valida o menu de usuario.
+  expect(result.text).to  end_with(user)
 
 end
 

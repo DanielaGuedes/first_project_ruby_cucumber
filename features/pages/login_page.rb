@@ -29,7 +29,7 @@ class LoginPage < SitePrism::Page
   element :input_pass_confirm,  "user_password_confirmation"
   element :menu_account, "a.nav__link-account.t_hide.m_hide"
   element :bt_submit, "input[type=submit]"
-  element :logout_menu, "track_logout"
+  element :logout_menu, "ul #track_logout"
   element :main_menu, ".account-header__account-link.account-header__account-with-sub-menu"
   # @base = BasePageWeb.new
   # @base.load
@@ -40,7 +40,7 @@ class LoginPage < SitePrism::Page
     @input_pass_confirm = "user_password_confirmation"
     @menu_account = "a.nav__link-account.t_hide.m_hide"
     @bt_submit = "input[type=submit]"
-    @logout_menu = "track_logout"
+    @logout_menu = "ul #track_logout"
     @main_menu = ".account-header__account-link.account-header__account-with-sub-menu"
   end
 
@@ -56,7 +56,7 @@ class LoginPage < SitePrism::Page
     # Boa pratica nao juntar o click com o element, quando dar erro no elemento
     # eh facil de indentificar, facilitando a manutencao.
     elem = check(@main_menu)
-    elem.hover
+    elem.click
     puts(elem) # adicionar ao log.
   end
 
@@ -78,7 +78,8 @@ class LoginPage < SitePrism::Page
   end
 
   def clicarSair
-    elem = page.find(:id, @logout_menu)
+    selecionaMenu
+    elem = page.find(:css, @logout_menu)
     puts(elem) # adicionar ao log.
     elem.click
   end
@@ -86,16 +87,12 @@ class LoginPage < SitePrism::Page
   def verified_main_menu
     # verifica a existencia do menu de usuario.
     elem = check(@main_menu)
-    # se quiser validar o email.
-    # expect(page).to have_css(@main_menu, :data-email => @email)
-    puts(elem.text) # adicionar ao log.
     return elem
   end
 
   def verified_logout
     # verifica o logout.
-    elem = check(@logout_menu)
-    puts(elem.text) # adicionar ao log.
+    elem = check(@menu_account)
   end
 
   def check(elem)
@@ -121,11 +118,8 @@ class LoginPage < SitePrism::Page
 
     # Imprimir valor
     user_elem = page.find(:id, @elem_id)
-    puts("\n" + user_elem.value) # adicionar ao log.
 
     return user_elem
 
   end
-
-
 end
