@@ -8,3 +8,6 @@ screenshots/current_images
 *.conf
 .idea
 *.idea
+cucumber.yml
+tdd/
+*.yml
