@@ -4,24 +4,22 @@ require 'selenium-webdriver'
 require 'site_prism'
 require 'rspec'
 require 'yaml'
-require 'capybara/poltergeist'
-#require 'capybara/dsl'
-require "capybara/rspec"
 
 BROWSER = ENV['BROWSER']
-
-ENVIRONMENT_TYPE = ENV['ENVIRONMENT_TYPE']
 puts(BROWSER)
 
 Capybara.register_driver :selenium do |app|
+  Capybara.default_max_wait_time = 60
   if BROWSER.eql?('chrome')
     Capybara::Selenium::Driver.new(app,
                                    :browser => :chrome,
+                                   :driver_path => "/home/reiload/drivers/chromedriver",
                                    :desired_capabilities => Selenium::WebDriver::Remote::Capabilities.chrome(
                                        'chromeOptions' => {
                                            'args' => [ "--start-maximized" ]
                                        }
                                    )
+
     )
   elsif BROWSER.eql?('firefox')
     Capybara::Selenium::Driver.new(app, :browser => :firefox,
@@ -30,8 +28,5 @@ Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, :browser => :internet_explorer)
   elsif BROWSER.eql?('safari')
     Capybara::Selenium::Driver.new(app, :browser => :safari)
-  elsif BROWSER.eql?('poltergeist')
-    options = { js_errors: false }
-    Capybara::Poltergeist::Driver.new(app, options)
   end
 end

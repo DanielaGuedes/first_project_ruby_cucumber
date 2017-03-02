@@ -6,4 +6,3 @@ gem 'rake'
 gem 'selenium-webdriver'
 gem 'site_prism'
 gem 'rspec'
-
