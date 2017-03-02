@@ -7,6 +7,8 @@ require 'yaml'
 
 BROWSER = ENV['BROWSER']
 puts(BROWSER)
+USER = ENV['USER']
+puts(USER)
 
 Capybara.register_driver :selenium do |app|
   Capybara.default_max_wait_time = 60
