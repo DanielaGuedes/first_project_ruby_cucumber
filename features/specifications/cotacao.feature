@@ -22,7 +22,24 @@ Cenario: Preencher dados iniciais
     E clicar em Cotar Seguro Auto.
     E em seguida clicar no botão Auto.
     Quando eu preencher os dados iniciais "<11999999999>"
-    E clicar em Escolher Coberturas
-    Entao terei acesso à aba de coberturas
-		|estado   |valor  |apelido      |
-    |São Paulo|200    |King    		  |
+		E selecionar seguir com o proximo passo.
+    Entao preencha os as informacoes com os dados is dados.
+		"""
+	   {
+	      'carro': 'CHEVROLET',
+	      'modelo': 'CORSA',
+				'caro': 'CHEVROLET',
+	      'modelo': 'CORSA',
+				'ano_modelo': '2004',
+	      'versao': 'CORSA SEDAN MAXX 1.0 / 1.0 FLEXPOWER 8V 4P (Gasolina / Flex)',
+				'uso': 'Particular',
+	      'ja_tenho': 'já estou utilizando',
+				'cep': '82520800',
+				'sexo': 'Masculino',
+				'nasci_em': '03101980',
+				'estado_civil ': 'Solteiro(a)',
+				'confimacao': 'sou',
+				'contratar_cobertura': 'Desejo',
+				'sinistro': 'nunca tive',
+	    }
+	  """
