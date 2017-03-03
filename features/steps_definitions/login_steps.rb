@@ -26,7 +26,6 @@ When(/^validar o acessar do usuario\.$/) do
   name = full_name.split(' ')
   puts(@login_page.main_menu_user)
   expect(@login_page.main_menu_user.text).to  eql(name.first)
-  sleep 10
 end
 
 When(/^selecionar o proximo passo\.$/) do
