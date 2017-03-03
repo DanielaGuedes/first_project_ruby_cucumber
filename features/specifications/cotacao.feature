@@ -26,20 +26,18 @@ Cenario: Preencher dados iniciais
     Entao preencha os as informacoes com os dados is dados.
 		"""
 	   {
-	      'carro': 'CHEVROLET',
-	      'modelo': 'CORSA',
-				'caro': 'CHEVROLET',
-	      'modelo': 'CORSA',
-				'ano_modelo': '2004',
-	      'versao': 'CORSA SEDAN MAXX 1.0 / 1.0 FLEXPOWER 8V 4P (Gasolina / Flex)',
-				'uso': 'Particular',
-	      'ja_tenho': 'já estou utilizando',
-				'cep': '82520800',
-				'sexo': 'Masculino',
-				'nasci_em': '03101980',
-				'estado_civil ': 'Solteiro(a)',
-				'confimacao': 'sou',
-				'contratar_cobertura': 'Desejo',
-				'sinistro': 'nunca tive',
-	    }
+			'carro': 'CHEVROLET',
+			'modelo': 'CORSA',
+			'ano_modelo': '2004',
+			'versao': 'CORSA SEDAN MAXX 1.0 / 1.0 FLEXPOWER 8V 4P (Gasolina / Flex)',
+			'uso': 'Particular',
+			'ja_tenho': 'já estou utilizando',
+			'cep': '82520800',
+			'sexo': 'Masculino',
+			'nasci_em': '03101980',
+			'estado_civil ': 'Solteiro(a)',
+			'confimacao': 'sou',
+			'contratar_cobertura': 'Desejo',
+			'sinistro': 'nunca tive',
+			}
 	  """
