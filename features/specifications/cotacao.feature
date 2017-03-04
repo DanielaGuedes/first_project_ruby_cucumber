@@ -23,17 +23,40 @@ Cenario: Preencher dados iniciais
     E em seguida clicar no botão Auto.
     Quando eu preencher os dados iniciais "<11999999999>"
 		E selecionar seguir com o proximo passo.
-    Entao preencha os as informacoes com os dados.
-		| carro   | AUDI |
-		| modelo  | A3     |
+    Entao preencha as informacoes com os dados.
+		| carro   | CHEVROLET |
+		| modelo  | CORSA     |
 		| ano_modelo | 2004   |
 		| versao   | CORSA SEDAN MAXX 1.0 / 1.0 FLEXPOWER 8V 4P (Gasolina / Flex)|
-		| uso      | Particular |
-		| ja_tenho | já estou utilizando |
+		| uso      | private |
+		| ja_tenho | true |
 		| cep				| 82520800 |
-		| sexo     | Masculino |
+		| sexo     | male |
 		| nasci_em | 03101980  |
-		| estado_civil | Solteiro(a)|
-		| confimacao   | sou |
-		| contratar_cobertura | Desejo |
-		| sinistro | nunca tive |
+		| estado_civil | single |
+		| confimacao   | true |
+		| contratar_cobertura | true |
+		| sinistro | 0 |
+		E selecionar seguir com o proximo passo.
+		Entao validar a cobertura padrao "4 Coberturas".
+		E selecionar seguir com o proximo passo.
+		Entao validar a assistencia padrao "0 Assistências".
+		E selecionar seguir com o proximo passo.
+		Entao preencher as informacoes sobre a pessoa com os dados.
+		| nome   | Reinaldo Mateus Rossetti Junior |
+		| cpf  | 52540430241     |
+		| naci_no | BR   |
+		| profissao   | Analista de desenvolvimento de sistemas |
+		| renda      | Band2 |
+		| cep				| 82520800 |
+		| rua     | Rua Amadeu Assad Yassim |
+		| numero | 92  |
+		| complemento | AP 302 |
+		| bairro   | Bacacheri |
+		E selecionar seguir com o proximo passo.
+		Entao preencher as informacoes sobre o veiculo com os dados.
+		| placa   | jxi5240 |
+		| adapdacoes  | false     |
+		| blindado | false   |
+		E selecionar seguir com o proximo passo.
+		Entao validar os campos da pagina de pagamento.
