@@ -1,4 +1,3 @@
-require 'json'
 
 Dado(/^clicar em Cotar Seguro Auto\.$/) do
   @cotacao = CotacaoPage.new
@@ -23,24 +22,15 @@ Quando(/^selecionar seguir com o proximo passo\.$/) do
     @cotacao.bt_submit.click
 end
 
-Entao(/^terei acesso à aba fale sobre seu carro\.$/) do |my_data|
-	@data = JSON.parse my_data
-	{
-	:carro => data['carro'],
-	:modelo => data['modelo'],
-	:ano_modelo => data['2004'],
-	:versao => data['versao'],
+Entao(/^preencha os as informacoes com os dados\.$/) do |table|
 
-	:uso => data['uso'],
-	:ja_tenho => data['ja_tenho'],
-	:cep => data['cep'],
-	:sexo => data['sexo'],
-
-	:nasci_em => data['nasci_em'],
-	:estado_civil => data['estado_civil'],
-	:confimacao => data['confimacao'],
-	:contratar_cobertura => data['contratar_cobertura'],
-	:sinistro => data['contratar_cobertura']
-	}
-
+  data = table.rows_hash
+  carro = data['carro']
+  modelo = data['modelo']
+  ano_modelo = data['ano_modelo']
+  versao = data['versao']
+  @cotacao.carro.find("option[value='#{carro}']").select_option
+  @cotacao.modelo.find("option[value='#{modelo}']").select_option
+  @cotacao.ano_modelo.find("option[value='#{ano_modelo}']").select_option
+  @cotacao.versao.find("option[value='#{versao}']").select_option
 end

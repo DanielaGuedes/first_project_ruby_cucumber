@@ -7,3 +7,4 @@ gem 'selenium-webdriver'
 gem 'site_prism'
 gem 'rspec'
 gem 'json'
+gem 'cucumber_tricks', :require => false
