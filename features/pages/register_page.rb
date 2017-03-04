@@ -12,5 +12,4 @@ class RegisterPage < SitePrism::Page
   element :input_pass_confirm,  "#user_password_confirmation"
   element :bt_submit, "input[type=submit]"
 
-
 end

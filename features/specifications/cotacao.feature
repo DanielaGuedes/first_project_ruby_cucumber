@@ -44,7 +44,7 @@ Cenario: Preencher dados iniciais
 		E selecionar seguir com o proximo passo.
 		Entao preencher as informacoes sobre a pessoa com os dados.
 		| nome   | Reinaldo Mateus Rossetti Junior |
-		| cpf  | 52540430241     |
+		| cpf  | 52540430244     |
 		| naci_no | BR   |
 		| profissao   | Analista de desenvolvimento de sistemas |
 		| renda      | Band2 |
@@ -56,7 +56,7 @@ Cenario: Preencher dados iniciais
 		E selecionar seguir com o proximo passo.
 		Entao preencher as informacoes sobre o veiculo com os dados.
 		| placa   | jxi5240 |
-		| adapdacoes  | false     |
+		| adaptacoes  | false     |
 		| blindado | false   |
 		E selecionar seguir com o proximo passo.
 		Entao validar os campos da pagina de pagamento.

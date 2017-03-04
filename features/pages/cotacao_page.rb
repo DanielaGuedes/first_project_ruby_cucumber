@@ -11,7 +11,6 @@ class CotacaoPage < SitePrism::Page
   element :phone,  "#auto_order_flow_lead_person_data_lead_person_attributes_phone"
   element :email, "#auto_order_flow_lead_person_data_lead_person_attributes_email"
   element :bt_submit, "input[type=submit]"
-
   element :carro, "select#auto_order_flow_pricing_requirements_vehicle_attributes_make"
   element :modelo, "#auto_order_flow_pricing_requirements_vehicle_attributes_model"
   element :ano_modelo, "#auto_order_flow_pricing_requirements_vehicle_attributes_year"

@@ -1,25 +1,33 @@
 
 Dado(/^clicar em Cotar Seguro Auto\.$/) do
+
   @cotacao = CotacaoPage.new
 	@cotacao.link_saiba_mais.click
+
 end
 
 Dado(/^em seguida clicar no botão Auto\.$/) do
+
   @cotacao.bt_quotation.click
 	@cotacao.nome
+
 end
 
 Quando(/^eu preencher os dados iniciais "([^"]*)"$/) do |phone_number|
-	user_name = ENV['USER']
-	email = ENV['EMAIL']
+
+  user_name = ENV['USER']
+  email = ENV['EMAIL']
   @cotacao.nome.set user_name
-	@cotacao.phone.set phone_number
-	@cotacao.email.set email
-	puts "Dados iniciais preenchido"
+  @cotacao.phone.set phone_number
+  @cotacao.email.set email
+  puts "Dados iniciais preenchido"
+
 end
 
 Quando(/^selecionar seguir com o proximo passo\.$/) do
-    @cotacao.bt_submit.click
+
+  @cotacao.bt_submit.click
+
 end
 
 Entao(/^preencha as informacoes com os dados\.$/) do |table|
@@ -57,28 +65,77 @@ Entao(/^preencha as informacoes com os dados\.$/) do |table|
 
 end
 
-
 Entao(/^validar a cobertura padrao "([^"]*)"\.$/) do |string|
-@Coverages = CoveragesSelectionPage.new
-@value_coverages = string.split(' ')
-puts(@Coverages.quantidade_itens2.text)
-puts(@Coverages.quantidade_itens_label.text)
-expect(@Coverages.quantidade_itens2.text).to  eql(@value_coverages.first)
-expect(@Coverages.quantidade_itens_label.text).to  eql(@value_coverages.last)
+
+  @Coverages = CoveragesSelectionPage.new
+  @value_coverages = string.split(' ')
+  puts(@Coverages.quantidade_itens2.text)
+  puts(@Coverages.quantidade_itens_label.text)
+  expect(@Coverages.quantidade_itens2.text).to  eql(@value_coverages.first)
+  expect(@Coverages.quantidade_itens_label.text).to  eql(@value_coverages.last)
+
 end
 
 Entao(/^validar a assistencia padrao "([^"]*)"\.$/) do |string|
-@Assistances = AssistancesPage.new
-@value_assistances = string.split(' ')
-puts(@Assistances.quantidade_coverages.text)
-puts(@Assistances.quantidade_assistances.text)
-puts(@Assistances.assistances_label.text)
 
-expect(@Assistances.quantidade_coverages.text).to  eql(@value_coverages.first)
-expect(@Assistances.quantidade_assistances.text).to  eql(@value_assistances.first)
-expect(@Assistances.assistances_label.text).to  eql(@value_assistances.last)
+  @Assistances = AssistancesPage.new
+  @value_assistances = string.split(' ')
+  puts(@Assistances.quantidade_coverages.text)
+  puts(@Assistances.quantidade_assistances.text)
+  puts(@Assistances.assistances_label.text)
+
+  expect(@Assistances.quantidade_coverages.text).to  eql(@value_coverages.first)
+  expect(@Assistances.quantidade_assistances.text).to  eql(@value_assistances.first)
+  expect(@Assistances.assistances_label.text).to  eql(@value_assistances.last)
+
 end
 
 Entao(/^preencher as informacoes sobre a pessoa com os dados\.$/) do |table|
-  pending # Write code here that turns the phrase above into concrete actions
+  @insured_person = InsuredPersonDataPage.new
+  data = table.rows_hash
+  full_name = data['nome']
+  cpf = data['cpf']
+  nacionalidade = data['naci_no']
+  profissao = data['profissao']
+  renda = data['renda']
+  cep = data['cep']
+  rua = data['rua']
+  numero = data['numero']
+  complemento = data['complemento']
+  bairro = data['bairro']
+
+  @insured_person.full_name.set full_name
+  @insured_person.cpf.set cpf
+  @insured_person.nacionalidade.find("option[value='#{nacionalidade}']").select_option
+  @insured_person.profissao.click
+  @insured_person.profissao_input.set profissao
+  @insured_person.profissao_input.native.send_keys(:return)
+  @insured_person.renda.find("option[value='#{renda}']").select_option
+  @insured_person.cep.set cep
+  @insured_person.rua.set rua
+  @insured_person.number.set numero
+  @insured_person.complemento.set complemento
+  @insured_person.bairro.set bairro
+end
+
+Entao(/^preencher as informacoes sobre o veiculo com os dados\.$/) do |table|
+
+  @vehicle_data = VehicleDataPage.new
+  data = table.rows_hash
+  placa = data['placa']
+  adaptacoes = data['adaptacoes']
+  blindado = data['blindado']
+  @vehicle_data.placa.set placa
+  @vehicle_data.adaptacoes.find("option[value='#{adaptacoes}']").select_option
+  @vehicle_data.blindado.find("option[value='#{blindado}']").select_option
+
+end
+
+Entao(/^validar os campos da pagina de pagamento\.$/) do
+
+  @payment_data = PaymentDataPage.new
+  @payment_data.cartao_number
+  @payment_data.cartao_nome
+  @payment_data.cvc
+
 end
