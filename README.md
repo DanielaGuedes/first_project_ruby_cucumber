@@ -44,8 +44,8 @@ NASC => Data de Nacismento do Usuário.
 
 # TAGS: #
 @cadastro -> Executa o teste da feature Realizar Cadastro de Novos Usuários.
-@login_logout -> executa teste da feature Realizar Testes de Login e Logout do Usuário.
-@cotacao -> esecuta teste de feature Solicitação de Proposta de Seguros
+@login_logout -> Executa o teste da feature Realizar Testes de Login e Logout do Usuário.
+@cotacao -> Executa o teste de feature Solicitação de Proposta de Seguros
 
 EXEMPLO DE COMANDO LOGIN:
 ```shell
