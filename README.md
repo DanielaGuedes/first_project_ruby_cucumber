@@ -60,11 +60,7 @@ bundle install
 ### Drivers: ###
 Install and include in PATH
 - [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/)
-- [phantomjs](http://phantomjs.org/)
-- [internetExplorerDriver](http://www.seleniumhq.org/download/)
 - [Firefox Geckodriver](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver)
-
-Install [Webdriver Safari extension](http://selenium-release.storage.googleapis.com/2.48/SafariDriver.safariextz).
 
 
 ### Run tests in DEV with Chrome###
@@ -127,12 +123,12 @@ Type this in the tests folder:
 bundle exec cucumber --tags @run
 ```
 
-# Automação de testes funcionais do site da Youse:
+# Automação de testes funcionais do site da Youse: #
 - Cadastro de novo usuário;
 - Login e Logout;
 - Cotação de proposta via detalhes.
 
-PARAMETROS NECESSÁRIOS PARA EXECUÇÃO:
+# PARAMETROS NECESSÁRIOS PARA EXECUÇÃO: #
 USER => Nome Completo do Usuario.
 EMAIL => Email do Usuário.
 PASS => Senha para efetuar o login.
@@ -145,15 +141,19 @@ TAGS:
 @cotacao -> esecuta teste de feature Solicitação de Proposta de Seguros
 
 EXEMPLO DE COMANDO LOGIN:
+```shell
 cucumber -t @login_logout USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
-
+```
 EXEMPLO DE COMANDO CADASTRO:
+```shell
 cucumber -t @cadastro USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
-
+```
 EXEMPLO DE COMANDO SOLICITAÇÃO DE PROPOSTA:
+```shell
 cucumber -t @cotacao USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
-
+```
 EXEMPLO DE COMANDO TESTAR TUDO:
+```shell
 cucumber USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
-
+```
 * Se passar os dados invalidos vai dar erro pois ele confere o CPF, NOME, NASCIMENTO.
