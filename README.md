@@ -1,115 +1,34 @@
-## Getting Started ##
 
-### Installing rbenv ###
-To install rbenv type:
-```shell
-brew install rbenv
-```
-
-Add to ~/.bash_profile:
-```shell
-eval "$(rbenv init -)"
-```
-
-List all available versions:
-```shell
-rbenv install -l
-```
-
-Install a Ruby version:
-```shell
-rbenv install 2.3.1
-```
-
-Sets a local application-specific Ruby 2.3.1:
-```shell
-rbenv local 2.3.1
-```
-
-### Installing bundler ###
+### Instalação das Gems é necessário instalar primeiro o bundler ###
 To install bundler type:
 ```shell
 gem install bundler
 ```
 
-##### Install FFI #####
+##### Gems que vão ser instaladas #####
 
-To install FFI package type:
-```shell
-bundle install ffi --platform ruby
-```
+Gems necessário para rodar os testes:
+source 'https://rubygems.org'
+
+gem 'capybara'
+gem 'cucumber'
+gem 'rake'
+gem 'selenium-webdriver'
+gem 'site_prism'
+gem 'rspec'
+gem 'os'
+gem 'rspec-retry'
 
 ### Installing gems ###
-To install gems type:
+Primeiro Passo entrar na pasta do projeto via cmd ou shell e instalar as gems com o comando:
 ```shell
 bundle install
 ```
 
 ### Drivers: ###
-Install and include in PATH
-- [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/)
-- [Firefox Geckodriver](https://developer.mozilla.org/en-US/docs/Mozilla/QA/Marionette/WebDriver)
+Baixa os drivers e colocar no c: da maquina:
+https://www.dropbox.com/s/midwh10jy8p7e6o/drivers.zip?dl=0
 
-
-### Run tests in DEV with Chrome###
-Type this in the tests folder:
-```shell
-bundle exec cucumber
-```
-
-### Run tests in DEV with Firefox###
-Type this in the tests folder:
-```shell
-bundle exec cucumber -p firefox -p dev
-```
-
-### Run tests in DEV with Safari###
-Type this in the tests folder:
-```shell
-bundle exec cucumber -p safari -p dev
-```
-
-### Run tests in DEV with Poltergeist###
-Type this in the tests folder:
-```shell
-bundle exec cucumber -p poltergeist -p dev
-```
-
-### Run tests in HMG with Chrome###
-Type this in the tests folder:
-```shell
-bundle exec cucumber -p chrome -p hmg
-```
-
-### Run tests in HMG with Firefox###
-Type this in the tests folder:
-```shell
-bundle exec cucumber -p firefox -p hmg
-```
-
-### Run tests in HMG with Safari###
-Type this in the tests folder:
-```shell
-bundle exec cucumber -p safari -p hmg
-```
-
-### Run tests in HMG with Poltergeist###
-Type this in the tests folder:
-```shell
-bundle exec cucumber -p poltergeist -p hmg
-```
-
-### HTML Report###
-Type this in the tests folder:
-```shell
-bundle exec cucumber -p html_report
-```
-
-### Run with tags###
-Type this in the tests folder:
-```shell
-bundle exec cucumber --tags @run
-```
 
 # Automação de testes funcionais do site da Youse: #
 - Cadastro de novo usuário;
@@ -144,4 +63,12 @@ EXEMPLO DE COMANDO TESTAR TUDO:
 ```shell
 cucumber USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
 ```
+
+### HTML Report###
+Para adicionar o report adicione o comando abaixo no cucumber:
+```shell
+--format progress --format html --out=features_report.html
+```
 * Se passar os dados invalidos vai dar erro pois ele confere o CPF, NOME, NASCIMENTO.
+
+
