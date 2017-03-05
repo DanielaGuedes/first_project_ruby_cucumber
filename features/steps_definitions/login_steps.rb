@@ -24,7 +24,8 @@ end
 When(/^validar o acessar do usuario\.$/) do
   full_name = ENV['USER']
   name = full_name.split(' ')
-  puts(@login_page.main_menu_user)
+  @login_page.main_menu
+
   expect(@login_page.main_menu_user.text).to  eql(name.first.downcase)
 end
 
@@ -41,12 +42,14 @@ When(/^clicar em Minha Conta apos o login\.$/) do
 end
 
 Quando(/^efetuar o logout\.$/) do
-  @login_page.main_menu.click
-  @login_page.logout_menu.click
+
+  @login_page.page.execute_script("$('#track_logout').trigger('click');")
+
 end
 
 When(/^validar o logout efetuado com sucesso\.$/) do
   @login_page.menu_account
+  puts(@login_page.menu_account.text)
 end
 
 Entao(/^conseguirei acessar a home.$/) do
