@@ -1,6 +1,6 @@
 # language: pt
 @cadastro
-Funcionalidade: Cadastro de usuario.
+Funcionalidade: Cadastro de Usuario.
 
   Como usuario novo
   Desejo criar um cadastro na Youse

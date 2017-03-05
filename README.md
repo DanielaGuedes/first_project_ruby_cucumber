@@ -126,3 +126,34 @@ Type this in the tests folder:
 ```shell
 bundle exec cucumber --tags @run
 ```
+
+# Automação de testes funcionais do site da Youse:
+- Cadastro de novo usuário;
+- Login e Logout;
+- Cotação de proposta via detalhes.
+
+PARAMETROS NECESSÁRIOS PARA EXECUÇÃO:
+USER => Nome Completo do Usuario.
+EMAIL => Email do Usuário.
+PASS => Senha para efetuar o login.
+CPF => CPF para confirmação da cotação.
+NASC => Data de Nacismento do Usuário.
+
+TAGS:
+@cadastro -> Executa o teste da feature Realizar Cadastro de Novos Usuários.
+@login_logout -> executa teste da feature Realizar Testes de Login e Logout do Usuário.
+@cotacao -> esecuta teste de feature Solicitação de Proposta de Seguros
+
+EXEMPLO DE COMANDO LOGIN:
+cucumber -t @login_logout USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
+
+EXEMPLO DE COMANDO CADASTRO:
+cucumber -t @cadastro USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
+
+EXEMPLO DE COMANDO SOLICITAÇÃO DE PROPOSTA:
+cucumber -t @cotacao USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
+
+EXEMPLO DE COMANDO TESTAR TUDO:
+cucumber USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
+
+* Se passar os dados invalidos vai dar erro pois ele confere o CPF, NOME, NASCIMENTO.
