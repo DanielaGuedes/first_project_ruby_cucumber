@@ -1,15 +1,22 @@
-# encoding: utf-8
-# !/usr/bin/env ruby
-# require 'fileutils'
-# class Helper
-#
-#   def take_screenshot(name_file, folder='screenshots/test_screens')
-#     file = "#{folder}/#{name_file}.png"
-#     FileUtils.mkdir_p(folder) unless File.exists?(folder)
-#     if BROWSER.eql?('poltergeist')
-#       Capybara.page.save_screenshot(file)
-#     else
-#       Capybara.page.driver.browser.save_screenshot(file)
-#     end
-#   end
-# end
+require 'os'
+
+class Helper
+  def get_os
+
+      if OS.windows? && OS.bits==64
+          return "C:\\drivers\\win64\\"
+      end
+
+      if OS.windows? && OS.bits==32
+        return "C:\\drivers\\win32\\"
+      end
+
+      if OS.linux? && OS.bits==64
+        return "/home/reiload/drivers/linux64/"
+
+      end
+      if OS.linux? && OS.bits==32
+        return "/home/reiload/drivers/linux32/"
+      end
+  end
+end

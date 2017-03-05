@@ -1,6 +1,6 @@
 Dado(/^que eu esteja no site da Youse "(.*)"\.$/) do |site|
   @login_page = LoginPage.new
-  @login_page.visit(site)
+  visit(site)
 end
 
 E(/^clicar em Minha Conta\.$/) do
@@ -25,7 +25,7 @@ When(/^validar o acessar do usuario\.$/) do
   full_name = ENV['USER']
   name = full_name.split(' ')
   puts(@login_page.main_menu_user)
-  expect(@login_page.main_menu_user.text).to  eql(name.first)
+  expect(@login_page.main_menu_user.text).to  eql(name.first.downcase)
 end
 
 When(/^selecionar o proximo passo\.$/) do
