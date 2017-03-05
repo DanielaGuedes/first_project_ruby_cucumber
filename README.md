@@ -32,22 +32,22 @@ Baixa os drivers e colocar no c: da maquina:
 https://www.dropbox.com/s/midwh10jy8p7e6o/drivers.zip?dl=0
 
 
-# Automação de testes funcionais do site da Youse: #
+### Automação de testes funcionais do site da Youse: ###
 - Cadastro de novo usuário;
 - Login e Logout;
 - Cotação de proposta via detalhes.
 
-# PARAMETROS NECESSÁRIOS PARA EXECUÇÃO: #
-USER => Nome Completo do Usuario.
-EMAIL => Email do Usuário.
-PASS => Senha para efetuar o login.
-CPF => CPF para confirmação da cotação.
+### PARAMETROS NECESSÁRIOS PARA EXECUÇÃO: ###
+USER => Nome Completo do Usuario.<br>
+EMAIL => Email do Usuário.<br>
+PASS => Senha para efetuar o login.<br>
+CPF => CPF para confirmação da cotação.<br>
 NASC => Data de Nacismento do Usuário.
 
-# TAGS: #
-@cadastro -> Executa o teste da feature Realizar Cadastro de Novos Usuários.
-@login_logout -> Executa o teste da feature Realizar Testes de Login e Logout do Usuário.
-@cotacao -> Executa o teste de feature Solicitação de Proposta de Seguros
+### TAGS: ###
+@cadastro -> Executa o teste da feature Realizar Cadastro de Novos Usuários.<br>
+@login_logout -> Executa o teste da feature Realizar Testes de Login e Logout do Usuário.<br>
+@cotacao -> Executa o teste de feature Solicitação de Proposta de Seguros.
 
 EXEMPLO DE COMANDO LOGIN:
 ```shell
@@ -67,8 +67,8 @@ cucumber USER="Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NA
 ```
 
 ### Ambiente Testado Windows 10 x64  e Linux Mint x64 ###
-#Versões de browsers:#
-firefox versão: 51.0
+### Versões de Browser:#
+firefox versão: 51.0<br>
 chrome versão: 56.0
 
 ### HTML Report###
