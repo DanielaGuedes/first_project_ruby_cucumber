@@ -66,7 +66,7 @@ EXEMPLO DE COMANDO TESTAR TUDO:
 cucumber USER="Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
 ```
 
-# Ambiente Testado Windows 10 x64  e Linux Mint x64#
+### Ambiente Testado Windows 10 x64  e Linux Mint x64 ###
 #Versões de browsers:#
 firefox versão: 51.0
 chrome versão: 56.0
