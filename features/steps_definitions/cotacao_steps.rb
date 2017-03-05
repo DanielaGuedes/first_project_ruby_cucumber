@@ -41,7 +41,7 @@ Entao(/^preencha as informacoes com os dados\.$/) do |table|
   ja_tenho = data['ja_tenho']
   cep = data['cep']
   sexo = data['sexo']
-  nasci_em = data['nasci_em']
+  nasci_em = ENV['NASC']
   estado_civil = data['estado_civil']
   confimacao = data['confimacao']
   contratar_cobertura = data['contratar_cobertura']
@@ -93,8 +93,8 @@ end
 Entao(/^preencher as informacoes sobre a pessoa com os dados\.$/) do |table|
   @insured_person = InsuredPersonDataPage.new
   data = table.rows_hash
-  full_name = data['nome']
-  cpf = data['cpf']
+  full_name = ENV['USER']
+  cpf = ENV['CPF']
   nacionalidade = data['naci_no']
   profissao = data['profissao']
   renda = data['renda']

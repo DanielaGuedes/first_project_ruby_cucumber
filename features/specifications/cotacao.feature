@@ -32,7 +32,6 @@ Cenario: Preencher dados iniciais
 		| ja_tenho | true |
 		| cep				| 82520800 |
 		| sexo     | male |
-		| nasci_em | 03101980  |
 		| estado_civil | single |
 		| confimacao   | true |
 		| contratar_cobertura | true |
@@ -43,15 +42,13 @@ Cenario: Preencher dados iniciais
 		Entao validar a assistencia padrao "0 Assistências".
 		E selecionar seguir com o proximo passo.
 		Entao preencher as informacoes sobre a pessoa com os dados.
-		| nome   | Reinaldo Mateus Rossetti Junior |
-		| cpf  | 52540430244     |
 		| naci_no | BR   |
 		| profissao   | Analista de desenvolvimento de sistemas |
 		| renda      | Band2 |
 		| cep				| 82520800 |
 		| rua     | Rua Amadeu Assad Yassim |
 		| numero | 92  |
-		| complemento | AP 302 |
+		| complemento | AP 000 |
 		| bairro   | Bacacheri |
 		E selecionar seguir com o proximo passo.
 		Entao preencher as informacoes sobre o veiculo com os dados.

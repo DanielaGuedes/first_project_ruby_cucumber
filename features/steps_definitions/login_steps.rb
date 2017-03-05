@@ -25,8 +25,7 @@ When(/^validar o acessar do usuario\.$/) do
   full_name = ENV['USER']
   name = full_name.split(' ')
   @login_page.main_menu
-
-  expect(@login_page.main_menu_user.text).to  eql(name.first.downcase)
+  expect(@login_page.main_menu_user.text.downcase).to  eql(name.first.downcase)
 end
 
 When(/^selecionar o proximo passo\.$/) do
