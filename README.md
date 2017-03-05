@@ -32,18 +32,6 @@ To install bundler type:
 gem install bundler
 ```
 
-### Windows Caveats ###
-
-##### Preparing Internet Explorer #####
-
-1. Check zoom level. It must be configured to 100%:
-
-     ![Step 1](readme_img/step_1.png?raw=true "Check zoom level")
-
-2. Disable 'Protected Mode' for all zones on Internet Options > Security:
-
-    ![Step 2](readme_img/step_2.png?raw=true "Disable 'Protected Mode'")
-
 ##### Install FFI #####
 
 To install FFI package type:
@@ -135,7 +123,7 @@ PASS => Senha para efetuar o login.
 CPF => CPF para confirmação da cotação.
 NASC => Data de Nacismento do Usuário.
 
-TAGS:
+# TAGS: #
 @cadastro -> Executa o teste da feature Realizar Cadastro de Novos Usuários.
 @login_logout -> executa teste da feature Realizar Testes de Login e Logout do Usuário.
 @cotacao -> esecuta teste de feature Solicitação de Proposta de Seguros
