@@ -51,20 +51,25 @@ NASC => Data de Nacismento do Usuário.
 
 EXEMPLO DE COMANDO LOGIN:
 ```shell
-cucumber -t @login_logout USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
+cucumber -t @login_logout BROWSER=chrome USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
 ```
 EXEMPLO DE COMANDO CADASTRO:
 ```shell
-cucumber -t @cadastro USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
+cucumber -t @cadastro BROWSER=chrome USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
 ```
 EXEMPLO DE COMANDO SOLICITAÇÃO DE PROPOSTA:
 ```shell
-cucumber -t @cotacao USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
+cucumber -t @cotacao BROWSER=chrome USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
 ```
 EXEMPLO DE COMANDO TESTAR TUDO:
 ```shell
 cucumber USER='Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
 ```
+
+# Ambiente Testado Windows 10 x64  e Linux Mint x64#
+#Versões de browsers:#
+firefox versão: 51.0
+chrome versão: 56.0
 
 ### HTML Report###
 Para adicionar o report adicione o comando abaixo no cucumber:
