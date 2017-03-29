@@ -1,5 +1,6 @@
 Dado(/^que eu esteja no site da Youse "(.*)"\.$/) do |site|
   @login_page = LoginPage.new
+  @register = RegisterPage.new
   visit(site)
 end
 
@@ -8,21 +9,21 @@ E(/^clicar em Minha Conta\.$/) do
 end
 
 When(/^preencher o campo email\.$/) do
-  email = ENV['EMAIL']
+  email = $emails[0]
   @login_page.field_email.set email
   # valida o preenchimento do campo.
   expect(@login_page.field_email.value).to eql(email)
 end
 
 When(/^preencher o campo senha\.$/) do
-  password = ENV['PASS']
+  password = $pass[0]
   @login_page.field_pass.set password
   # valida o preenchimento do campo.
   expect(@login_page.field_pass.value).to eql(password)
 end
 
 When(/^validar o acessar do usuario\.$/) do
-  full_name = ENV['USER']
+  full_name = $first_names[0] + " " + $last_names[0]
   name = full_name.split(' ')
   @login_page.main_menu
   expect(@login_page.main_menu_user.text.downcase).to  eql(name.first.downcase)
