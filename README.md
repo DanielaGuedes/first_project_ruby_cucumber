@@ -1,5 +1,5 @@
 Meu Primeiro projeto de Automação usando Ruby, Capybara, SitePrism, usando o conceito de Pages Object. Não temos nenhum Sleep fixo no projeto, tudo é feito de forma dinâmica, alguns parâmetros são passado via o comando do cucumber no cmd ou shell e os outros estão na tabela na feature, não utilizamos xpath nesse projeto somente ID e CSS Selector, como boa prática procurei deixar o projeto relativamente simples. 
-Apesar de o projeto não ter nenhum sleep fixo e somente ID, Class e CSS, não gostei muito do projeto, tenho que passar um monte de paramêtro pela feature, parece coisa de amador. Por isso criei uma tag 1.0, e vou trabalhar na tag 2.0 que vai passar os dados todos pelo banco e se quiser sobrescrever os dados manda via paramêtro.
+<br>Apesar de o projeto não ter nenhum sleep fixo e somente ID, Class e CSS, não gostei muito do projeto, tenho que passar um monte de paramêtro pela feature, parece coisa de amador. Por isso criei uma tag 1.0, e vou trabalhar na tag 2.0 que vai passar os dados todos pelo banco e se quiser sobrescrever os dados manda via paramêtro.
 
 
 ### Instalação das Gems é necessário instalar primeiro o bundler ###
