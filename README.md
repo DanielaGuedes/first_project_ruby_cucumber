@@ -113,7 +113,7 @@ Funcionalidade: Cadastro de Usuario.
 
     Dado que eu esteja no site da Youse.
     E clicar em Minha Conta.
-    E selecionar a opcao cadastra-se e preenche os dados.
+    E selecionar a opcao cadastra-se e preencher os dados.
     E enviar o cadastro realizado.
     Então validar o acessar do usuario.
 ```
