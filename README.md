@@ -93,9 +93,9 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
 
-Rodando o report e todas as features.
+Rodando todas as features, como os dados estão na tabela precisamos somente da data de nascimento e cpf passado por paramêtro.
 ```shell
-cucumber BROWSER=chrome USER=Reiload EMAIL=rei12345@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100 --format html --out=features_report.html
+cucumber BROWSER=chrome NASC=03101980 CPF=18530249100 --format html --out=reports/features_report.html
 ```
 
 ### Exemplo de uma Feature usando boas práticas no caso do step "selecionar a opcao cadastra-se e preencher os dados.", existe vários steps tenho de um, somente pra ficar fácil de ler o BDD. 
