@@ -1,6 +1,3 @@
-require 'site_prism'
-require 'selenium-webdriver'
-
 
 class CotacaoPage < SitePrism::Page
 

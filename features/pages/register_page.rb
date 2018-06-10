@@ -1,10 +1,3 @@
-require 'site_prism'
-require 'selenium-webdriver'
-
-$first_names = []
-$last_names = []
-$emails = []
-$pass = []
 
 class RegisterPage < SitePrism::Page
 
@@ -16,8 +9,14 @@ class RegisterPage < SitePrism::Page
   element :input_pass_confirm,  "#user_password_confirmation"
   element :bt_submit, "input[type=submit]"
 
-  @data = MySQL.new
-  result = @data.query_test('SELECT * FROM user')
+  def initialize
+    @data = MySQL.new
+    result = @data.query_test('SELECT * FROM user')
+    $first_names = []
+    $last_names = []
+    $emails = []
+    $pass = []
+  end
 
   result.each do |user|
     puts user

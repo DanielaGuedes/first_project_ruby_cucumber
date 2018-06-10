@@ -8,7 +8,7 @@ Para que eu consiga contratar o serviço
 
 Contexto: Login
 
-	Dado que eu esteja no site da Youse "https://www.youse.com.br".
+	Dado que eu esteja no site da Youse.
 	E clicar em Minha Conta.
 	Quando preencher o campo email.
 	E selecionar o proximo passo.
@@ -18,7 +18,7 @@ Contexto: Login
 
 Cenario: Preencher dados iniciais
 
-    Dado que eu esteja no site da Youse "https://www.youse.com.br".
+    Dado que eu esteja no site da Youse.
     E clicar em Cotar Seguro Auto.
     E em seguida clicar no botão Auto.
     Quando eu preencher os dados iniciais "<11999999999>"

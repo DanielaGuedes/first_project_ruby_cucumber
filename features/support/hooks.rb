@@ -1,15 +1,12 @@
-require_relative 'helper.rb'
 
 Before do |feature|
-
-  ## configure the chosen browser
-  Capybara.configure do |config|
-    config.default_driver = :selenium
-  end
-
-  ## set default max wait and maximize browser
-  Capybara.default_max_wait_time = 90
-  # configurar o browser maximizado.
   Capybara.page.driver.browser.manage.window.maximize
+end
 
+After do |scenario|
+  # Do something after each scenario.
+  if scenario.failed?
+	encoded_img = @browser.driver.screenshot_as(:base64)
+  embed("data:image/png;base64,#{encoded_img}",'image/png')
+  end
 end

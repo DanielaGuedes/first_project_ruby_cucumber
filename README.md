@@ -19,7 +19,6 @@ gem 'rake'
 gem 'selenium-webdriver'
 gem 'site_prism'
 gem 'rspec'
-gem 'os'
 gem 'rspec-retry'
 
 ### Installing gems ###
@@ -79,4 +78,15 @@ Para adicionar o report adicione o comando abaixo no cucumber:
 ```
 * Se passar os dados invalidos vai dar erro pois ele confere o CPF, NOME, NASCIMENTO.
 
-
+# DataBase com dados secretos
+```shell
+CREATE TABLE `user` (
+  `iduser` int(11) NOT NULL,
+  `nome` varchar(145) NOT NULL,
+  `sobrenome` varchar(145) DEFAULT NULL,
+  `login` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `perfil` varchar(45) DEFAULT NULL,
+  `email` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+```

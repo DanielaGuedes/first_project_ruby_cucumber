@@ -1,37 +1,33 @@
+cotacao = CotacaoPage.new
+Coverages = CoveragesSelectionPage.new
+Assistances = AssistancesPage.new
+insured_person = InsuredPersonDataPage.new
+vehicle_data = VehicleDataPage.new
+payment_data = PaymentDataPage.new
 
 Dado(/^clicar em Cotar Seguro Auto\.$/) do
-
-  @cotacao = CotacaoPage.new
-	@cotacao.link_saiba_mais.click
-
+	cotacao.link_saiba_mais.click
 end
 
 Dado(/^em seguida clicar no botão Auto\.$/) do
-
-  @cotacao.bt_quotation.click
-	@cotacao.nome
-
+  cotacao.bt_quotation.click
+	cotacao.nome
 end
 
 Quando(/^eu preencher os dados iniciais "([^"]*)"$/) do |phone_number|
-
   user_name = ENV['USER']
   email = ENV['EMAIL']
-  @cotacao.nome.set user_name
-  @cotacao.phone.set phone_number
-  @cotacao.email.set email
+  cotacao.nome.set user_name
+  cotacao.phone.set phone_number
+  cotacao.email.set email
   puts "Dados iniciais preenchido"
-
 end
 
 Quando(/^selecionar seguir com o proximo passo\.$/) do
-
-  @cotacao.bt_submit.click
-
+  cotacao.bt_submit.click
 end
 
 Entao(/^preencha as informacoes com os dados\.$/) do |table|
-
   data = table.rows_hash
   carro = data['carro']
   modelo = data['modelo']
@@ -47,51 +43,45 @@ Entao(/^preencha as informacoes com os dados\.$/) do |table|
   contratar_cobertura = data['contratar_cobertura']
   sinistro = data['sinistro']
 
-  @cotacao.carro.all("option[value='#{carro}']")[1].select_option
-  @cotacao.modelo.find("option[value='#{modelo}']").select_option
-  @cotacao.ano_modelo.find("option[value='#{ano_modelo}']").select_option
-  @cotacao.versao.find("option[value='#{versao}']").select_option
-  @cotacao.uso.find("option[value='auto|#{uso}']").select_option
-  @cotacao.tenho.find("option[value='#{ja_tenho}']").select_option
+  cotacao.carro.all("option[value='#{carro}']")[1].select_option
+  cotacao.modelo.find("option[value='#{modelo}']").select_option
+  cotacao.ano_modelo.find("option[value='#{ano_modelo}']").select_option
+  cotacao.versao.find("option[value='#{versao}']").select_option
+  cotacao.uso.find("option[value='auto|#{uso}']").select_option
+  cotacao.tenho.find("option[value='#{ja_tenho}']").select_option
 
-  @cotacao.cep.set cep
-  @cotacao.sexo.find("option[value='#{sexo}']").select_option
+  cotacao.cep.set cep
+  cotacao.sexo.find("option[value='#{sexo}']").select_option
 
-  @cotacao.nascimento.set nasci_em
-  @cotacao.estado_civil.find("option[value='#{estado_civil}']").select_option
-  @cotacao.pessoa_mais_dirige.find("option[value='#{confimacao}']").select_option
-  @cotacao.contratar_cobertura.find("option[value='#{contratar_cobertura}']").select_option
-  @cotacao.sinistro.find("option[value='#{sinistro}']").select_option
-
+  cotacao.nascimento.set nasci_em
+  cotacao.estado_civil.find("option[value='#{estado_civil}']").select_option
+  cotacao.pessoa_mais_dirige.find("option[value='#{confimacao}']").select_option
+  cotacao.contratar_cobertura.find("option[value='#{contratar_cobertura}']").select_option
+  cotacao.sinistro.find("option[value='#{sinistro}']").select_option
 end
 
 Entao(/^validar a cobertura padrao "([^"]*)"\.$/) do |string|
-
-  @Coverages = CoveragesSelectionPage.new
-  @value_coverages = string.split(' ')
-  puts(@Coverages.quantidade_itens2.text)
-  puts(@Coverages.quantidade_itens_label.text)
-  expect(@Coverages.quantidade_itens2.text).to  eql(@value_coverages.first)
-  expect(@Coverages.quantidade_itens_label.text).to  eql(@value_coverages.last)
-
+  value_coverages = string.split(' ')
+  puts(Coverages.quantidade_itens2.text)
+  puts(Coverages.quantidade_itens_label.text)
+  expect(Coverages.quantidade_itens2.text).to  eql(value_coverages.first)
+  expect(Coverages.quantidade_itens_label.text).to  eql(value_coverages.last)
 end
 
 Entao(/^validar a assistencia padrao "([^"]*)"\.$/) do |string|
 
-  @Assistances = AssistancesPage.new
-  @value_assistances = string.split(' ')
-  puts(@Assistances.quantidade_coverages.text)
-  puts(@Assistances.quantidade_assistances.text)
-  puts(@Assistances.assistances_label.text)
+  value_assistances = string.split(' ')
+  puts(Assistances.quantidade_coverages.text)
+  puts(Assistances.quantidade_assistances.text)
+  puts(Assistances.assistances_label.text)
 
-  expect(@Assistances.quantidade_coverages.text).to  eql(@value_coverages.first)
-  expect(@Assistances.quantidade_assistances.text).to  eql(@value_assistances.first)
-  expect(@Assistances.assistances_label.text).to  eql(@value_assistances.last)
-
+  expect(Assistances.quantidade_coverages.text).to  eql(value_coverages.first)
+  expect(Assistances.quantidade_assistances.text).to  eql(value_assistances.first)
+  expect(Assistances.assistances_label.text).to  eql(value_assistances.last)
 end
 
 Entao(/^preencher as informacoes sobre a pessoa com os dados\.$/) do |table|
-  @insured_person = InsuredPersonDataPage.new
+
   data = table.rows_hash
   full_name = ENV['USER']
   cpf = ENV['CPF']
@@ -104,38 +94,32 @@ Entao(/^preencher as informacoes sobre a pessoa com os dados\.$/) do |table|
   complemento = data['complemento']
   bairro = data['bairro']
 
-  @insured_person.full_name.set full_name
-  @insured_person.cpf.set cpf
-  @insured_person.nacionalidade.find("option[value='#{nacionalidade}']").select_option
-  @insured_person.profissao.click
-  @insured_person.profissao_input.set profissao
-  @insured_person.profissao_input.native.send_keys(:return)
-  @insured_person.renda.find("option[value='#{renda}']").select_option
-  @insured_person.cep.set cep
-  @insured_person.rua.set rua
-  @insured_person.number.set numero
-  @insured_person.complemento.set complemento
-  @insured_person.bairro.set bairro
+  insured_person.full_name.set full_name
+  insured_person.cpf.set cpf
+  insured_person.nacionalidade.find("option[value='#{nacionalidade}']").select_option
+  insured_person.profissao.click
+  insured_person.profissao_input.set profissao
+  insured_person.profissao_input.native.send_keys(:return)
+  insured_person.renda.find("option[value='#{renda}']").select_option
+  insured_person.cep.set cep
+  insured_person.rua.set rua
+  insured_person.number.set numero
+  insured_person.complemento.set complemento
+  insured_person.bairro.set bairro
 end
 
 Entao(/^preencher as informacoes sobre o veiculo com os dados\.$/) do |table|
-
-  @vehicle_data = VehicleDataPage.new
   data = table.rows_hash
   placa = data['placa']
   adaptacoes = data['adaptacoes']
   blindado = data['blindado']
-  @vehicle_data.placa.set placa
-  @vehicle_data.adaptacoes.find("option[value='#{adaptacoes}']").select_option
-  @vehicle_data.blindado.find("option[value='#{blindado}']").select_option
-
+  vehicle_data.placa.set placa
+  vehicle_data.adaptacoes.find("option[value='#{adaptacoes}']").select_option
+  vehicle_data.blindado.find("option[value='#{blindado}']").select_option
 end
 
 Entao(/^validar os campos da pagina de pagamento\.$/) do
-
-  @payment_data = PaymentDataPage.new
-  @payment_data.cartao_number
-  @payment_data.cartao_nome
-  @payment_data.cvc
-
+  payment_data.cartao_number
+  payment_data.cartao_nome
+  payment_data.cvc
 end

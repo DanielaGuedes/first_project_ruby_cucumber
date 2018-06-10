@@ -8,7 +8,7 @@ Funcionalidade: Login na Youse
 
   Contexto: Login
 
-    Dado que eu esteja no site da Youse "https://www.youse.com.br".
+    Dado que eu esteja no site da Youse.
     E clicar em Minha Conta.
     Quando preencher o campo email.
     E selecionar o proximo passo.

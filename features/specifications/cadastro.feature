@@ -8,7 +8,7 @@ Funcionalidade: Cadastro de Usuario.
 
   Cenario: Novo Cadastro
 
-    Dado que eu esteja no site da Youse "https://www.youse.com.br".
+    Dado que eu esteja no site da Youse.
     E clicar em Minha Conta.
     E selecionar a opcao cadastra-se.
     E preencher o campo nome.

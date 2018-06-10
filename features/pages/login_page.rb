@@ -1,8 +1,4 @@
 
-require 'site_prism'
-require 'selenium-webdriver'
-
-
 class LoginPage < SitePrism::Page
 
   # Declarando todos os elementos da page login.

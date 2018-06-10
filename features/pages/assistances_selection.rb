@@ -1,7 +1,3 @@
-require 'capybara/dsl'
-require 'site_prism'
-
-
 class AssistancesPage < SitePrism::Page
 
     element :quantidade_coverages, ".t2m.resume__count.t--negative[data-coverages-count]"

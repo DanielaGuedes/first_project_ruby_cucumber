@@ -1,6 +1,3 @@
-require 'capybara/dsl'
-require 'site_prism'
-
 
 class PaymentDataPage < SitePrism::Page
 

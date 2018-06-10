@@ -1,27 +1,20 @@
 require 'capybara'
 require 'capybara/cucumber'
-require 'cucumber'
 require 'selenium-webdriver'
 require 'site_prism'
 require 'rspec'
-require 'yaml'
-require_relative  'helper.rb'
 require 'rspec/retry'
 
+# Pre-requisito copiar os drivers pra dentro da pasta bin do ruby.
+# Passar o browser por parametro.
 BROWSER = ENV['BROWSER']
 puts(BROWSER)
-# Pega o driver de acordo com o SO e plataforma.
-# comente essa parte e o driver_path se o driver estive jah configurado.
-helps = Helper.new
-PATH = helps.get_os(BROWSER.downcase)
-puts(PATH)
 
+# cria a instancia do chrome.
 Capybara.register_driver :selenium do |app|
-  Capybara.default_max_wait_time = 60
   if BROWSER.eql?('chrome')
     Capybara::Selenium::Driver.new(app,
                                    :browser => :chrome,
-                                   :driver_path => "#{PATH}",
                                    :desired_capabilities => Selenium::WebDriver::Remote::Capabilities.chrome(
                                        'chromeOptions' => {
                                            'args' => [ "--start-maximized" ]
@@ -30,9 +23,7 @@ Capybara.register_driver :selenium do |app|
 
     )
   elsif BROWSER.eql?('firefox')
-    Capybara::Selenium::Driver.new(app, :browser => :firefox,
-                                     :marionette => true,
-                                   :driver_path => "#{PATH}")
+    Capybara::Selenium::Driver.new(app, :browser => :firefox)
   elsif BROWSER.eql?('internet_explorer')
     Capybara::Selenium::Driver.new(app, :browser => :internet_explorer)
   elsif BROWSER.eql?('safari')
@@ -45,8 +36,16 @@ RSpec.configure do |config|
   # show retry status in spec process
   config.verbose_retry = true
   # Try twice (retry once)
-  config.default_retry_count = 2
+  config.default_retry_count = 3
   # Only retry when Selenium raises Net::ReadTimeout
   config.exceptions_to_retry = [Net::ReadTimeout]
-  Capybara.javascript_driver = :webkit
+end
+
+# Alterando algumas configurações padrao.
+Capybara.configure do |config|
+  # Deixando o site como padrao podemos deixar o visit em branco.
+  # ou somente colocar do barra em diante, visit '/home'.
+  config.app_host = "https://www.youse.com.br"
+  # timeout maximo das esperas.
+  config.default_max_wait_time = 30
 end
