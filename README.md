@@ -72,9 +72,9 @@ firefox versão: 51.0<br>
 chrome versão: 56.0
 
 ### HTML Report###
-Para adicionar o report adicione o comando abaixo no cucumber:
+Para adicionar o report adicione o comando abaixo no final dos comandos, esse é o report HTML:
 ```shell
---format progress --format html --out=features_report.html
+--format html --out=features_report.html
 ```
 * Se passar os dados invalidos vai dar erro pois ele confere o CPF, NOME, NASCIMENTO.
 
