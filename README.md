@@ -51,19 +51,19 @@ NASC => Data de Nacismento do Usuário.
 
 EXEMPLO DE COMANDO LOGIN:
 ```shell
-cucumber -t @login_logout BROWSER=chrome USER="Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
+cucumber -t @login_logout BROWSER=chrome --format html --out=reports/features_report.html
 ```
 EXEMPLO DE COMANDO CADASTRO:
 ```shell
-cucumber -t @cadastro BROWSER=chrome USER="Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres
+cucumber -t @cadastro BROWSER=chrome USER="Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres --format html --out=reports/features_report.html
 ```
 EXEMPLO DE COMANDO SOLICITAÇÃO DE PROPOSTA:
 ```shell
-cucumber -t @cotacao BROWSER=chrome USER="Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
+cucumber -t @cotacao BROWSER=chrome NASC=03101980 CPF=18530249100 --format html --out=reports/features_report.html
 ```
 EXEMPLO DE COMANDO TESTAR TUDO:
 ```shell
-cucumber USER="Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100
+cucumber USER="Nome do Usuário" EMAIL=user@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100 --format html --out=reports/features_report.html
 ```
 
 ### Ambiente Testado Windows 10 x64  e Linux Mint x64 ###
@@ -91,11 +91,6 @@ CREATE TABLE `user` (
   `perfil` varchar(45) DEFAULT NULL,
   `email` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-```
-
-Rodando todas as features, como os dados estão na tabela precisamos somente da data de nascimento e cpf passado por paramêtro.
-```shell
-cucumber BROWSER=chrome NASC=03101980 CPF=18530249100 --format html --out=reports/features_report.html
 ```
 
 ### Exemplo de uma Feature usando boas práticas no caso do step "selecionar a opcao cadastra-se e preencher os dados.", existe vários steps tenho de um, somente pra ficar fácil de ler o BDD. 
