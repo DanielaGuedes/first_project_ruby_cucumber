@@ -98,7 +98,7 @@ Rodando o report e todas as features.
 cucumber BROWSER=chrome USER=Reiload EMAIL=rei12345@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100 --format html --out=features_report.html
 ```
 
-### Exemplo de uma Feature usando boas práticas no caso do step "selecionar a opcao cadastra-se e preenche os dados.", existe vários steps tenho de um, somente pra ficar fácil de ler o BDD. 
+### Exemplo de uma Feature usando boas práticas no caso do step "selecionar a opcao cadastra-se e preencher os dados.", existe vários steps tenho de um, somente pra ficar fácil de ler o BDD. 
 ```shell
 # language: pt
 
@@ -113,7 +113,7 @@ Funcionalidade: Cadastro de Usuario.
 
     Dado que eu esteja no site da Youse.
     E clicar em Minha Conta.
-    E selecionar a opcao cadastra-se e preenche os dados.
+    E selecionar a opcao cadastra-se e preencher os dados.
     E enviar o cadastro realizado.
     Então validar o acessar do usuario.
 ```
