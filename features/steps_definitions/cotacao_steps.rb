@@ -1,17 +1,17 @@
 cotacao = CotacaoPage.new
-Coverages = CoveragesSelectionPage.new
-Assistances = AssistancesPage.new
+coverages = CoveragesSelectionPage.new
+assistances = AssistancesPage.new
 insured_person = InsuredPersonDataPage.new
 vehicle_data = VehicleDataPage.new
 payment_data = PaymentDataPage.new
 
 Dado(/^clicar em Cotar Seguro Auto\.$/) do
-	cotacao.link_saiba_mais.click
+  cotacao.link_saiba_mais.click
 end
 
 Dado(/^em seguida clicar no botão Auto\.$/) do
   cotacao.bt_quotation.click
-	cotacao.nome
+  cotacao.nome
 end
 
 Quando(/^eu preencher os dados iniciais "([^"]*)"$/) do |phone_number|
@@ -62,22 +62,22 @@ end
 
 Entao(/^validar a cobertura padrao "([^"]*)"\.$/) do |string|
   value_coverages = string.split(' ')
-  puts(Coverages.quantidade_itens2.text)
-  puts(Coverages.quantidade_itens_label.text)
-  expect(Coverages.quantidade_itens2.text).to  eql(value_coverages.first)
-  expect(Coverages.quantidade_itens_label.text).to  eql(value_coverages.last)
+  puts(coverages.quantidade_itens2.text)
+  puts(coverages.quantidade_itens_label.text)
+  expect(coverages.quantidade_itens2.text).to eql(value_coverages.first)
+  expect(coverages.quantidade_itens_label.text).to eql(value_coverages.last)
 end
 
 Entao(/^validar a assistencia padrao "([^"]*)"\.$/) do |string|
 
   value_assistances = string.split(' ')
-  puts(Assistances.quantidade_coverages.text)
-  puts(Assistances.quantidade_assistances.text)
-  puts(Assistances.assistances_label.text)
+  puts(assistances.quantidade_coverages.text)
+  puts(assistances.quantidade_assistances.text)
+  puts(assistances.assistances_label.text)
 
-  expect(Assistances.quantidade_coverages.text).to  eql(value_coverages.first)
-  expect(Assistances.quantidade_assistances.text).to  eql(value_assistances.first)
-  expect(Assistances.assistances_label.text).to  eql(value_assistances.last)
+  expect(assistances.quantidade_coverages.text).to eql(value_coverages.first)
+  expect(assistances.quantidade_assistances.text).to eql(value_assistances.first)
+  expect(assistances.assistances_label.text).to eql(value_assistances.last)
 end
 
 Entao(/^preencher as informacoes sobre a pessoa com os dados\.$/) do |table|
