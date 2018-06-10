@@ -1,12 +1,12 @@
 context = RegisterPage.new
 
-Dado(/^selecionar a opcao cadastra-se e preencher os dados.\-se\.$/) do
+Dado(/^selecionar a opcao cadastra-se e preencher os dados\.$/) do
   context.cadastrar.click
   steps %Q{
       "E preencher o campo nome.
       E preencher o campo user email.
       E preencher o campo user senha.
-      E preencher o campo repetir senha."
+      E preencher o campo repetir senha.
     }
 end
 

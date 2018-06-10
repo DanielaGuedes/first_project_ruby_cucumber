@@ -38,7 +38,6 @@ $pass = []
 
 result.each do |user|
   unless user.nil?
-    # puts user
     $first_names.push(user['nome'])
     $last_names.push(user['sobrenome'])
     $emails.push(user['email'])
