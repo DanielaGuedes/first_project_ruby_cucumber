@@ -72,13 +72,15 @@ firefox versão: 51.0<br>
 chrome versão: 56.0
 
 ### HTML Report###
-Para adicionar o report adicione o comando abaixo no cucumber:
+Para adicionar o report adicione o comando abaixo no final dos comandos, esse é o report HTML:
 ```shell
---format progress --format html --out=features_report.html
+--format html --out=features_report.html
 ```
 * Se passar os dados invalidos vai dar erro pois ele confere o CPF, NOME, NASCIMENTO.
 
-# DataBase com dados secretos
+
+### DataBase com dados secretos, como ele vai cadastrar multiplos valores vai criar um array. Somente usei Banco de Dados, pra mostrar que os dados não precisam ficar fixo na feature, é muito melhor trabalhar com o banco ao invés de criar aquele tabelão no BDD.
+
 ```shell
 CREATE TABLE `user` (
   `iduser` int(11) NOT NULL,
@@ -93,5 +95,25 @@ CREATE TABLE `user` (
 
 Rodando o report e todas as features.
 ```shell
-cucumber BROWSER=chrome USER=Reiload EMAIL=rei12345@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100 --format progress --format html --out=features_report.html
+cucumber BROWSER=chrome USER=Reiload EMAIL=rei12345@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100 --format html --out=features_report.html
+```
+
+### Exemplo de uma Feature usando boas práticas no caso do step "selecionar a opcao cadastra-se e preenche os dados.", existe vários steps tenho de um, somente pra ficar fácil de ler o BDD. 
+```shell
+# language: pt
+
+@cadastro
+Funcionalidade: Cadastro de Usuario.
+
+  Como usuario novo
+  Desejo criar um cadastro na Youse
+  Para poder contratar um seguro
+
+  Cenario: Novo Cadastro
+
+    Dado que eu esteja no site da Youse.
+    E clicar em Minha Conta.
+    E selecionar a opcao cadastra-se e preenche os dados.
+    E enviar o cadastro realizado.
+    Então validar o acessar do usuario.
 ```
