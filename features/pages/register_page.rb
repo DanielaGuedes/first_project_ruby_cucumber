@@ -9,21 +9,4 @@ class RegisterPage < SitePrism::Page
   element :input_pass_confirm,  "#user_password_confirmation"
   element :bt_submit, "input[type=submit]"
 
-  def initialize
-    @data = MySQL.new
-    result = @data.query_test('SELECT * FROM user')
-    $first_names = []
-    $last_names = []
-    $emails = []
-    $pass = []
-  end
-
-  result.each do |user|
-    puts user
-    $first_names.push(user['nome'])
-    $last_names.push(user['sobrenome'])
-    $emails.push(user['email'])
-    $pass.push(user['password'])
-  end
-
 end

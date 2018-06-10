@@ -1,5 +1,7 @@
 require 'capybara'
 require 'capybara/cucumber'
+require 'capybara/rspec/matchers'
+require 'selenium-webdriver'
 require 'selenium-webdriver'
 require 'site_prism'
 require 'rspec'
@@ -9,6 +11,9 @@ require 'rspec/retry'
 # Passar o browser por parametro.
 BROWSER = ENV['BROWSER']
 puts(BROWSER)
+
+# World(Capybara::DSL)
+# World(Capybara::RSpecMatchers)
 
 # cria a instancia do chrome.
 Capybara.register_driver :selenium do |app|
@@ -31,6 +36,7 @@ Capybara.register_driver :selenium do |app|
   end
 end
 
+Capybara.default_driver = :selenium
 
 RSpec.configure do |config|
   # show retry status in spec process

@@ -1,4 +1,5 @@
 # language: pt
+
 @cotacao
 Funcionalidade: Cotacao
 

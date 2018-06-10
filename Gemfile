@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'capybara'
-gem 'cucumber'
-gem 'rake'
+gem 'cucumber', '2.4.0'
 gem 'selenium-webdriver'
 gem 'site_prism'
 gem 'rspec'

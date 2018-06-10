@@ -90,3 +90,8 @@ CREATE TABLE `user` (
   `email` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 ```
+
+Rodando o report e todas as features.
+```shell
+cucumber BROWSER=chrome USER=Reiload EMAIL=rei12345@dominio.com PASS=senha8caracteres NASC=03101980 CPF=18530249100 --format progress --format html --out=features_report.html
+```

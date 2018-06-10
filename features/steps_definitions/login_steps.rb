@@ -2,7 +2,7 @@ login_page = LoginPage.new
 register = RegisterPage.new
 
 Dado(/^que eu esteja no site da Youse\.$/) do
-  visit('')
+  page.visit('')
 end
 
 E(/^clicar em Minha Conta\.$/) do
@@ -48,7 +48,7 @@ end
 
 When(/^validar o logout efetuado com sucesso\.$/) do
   login_page.menu_account
-  puts(@login_page.menu_account.text)
+  puts(login_page.menu_account.text)
 end
 
 Entao(/^conseguirei acessar a home.$/) do

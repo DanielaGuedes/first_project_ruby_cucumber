@@ -11,7 +11,7 @@ class MySQL
   def initialize
     # CONSTANTES USADAS
     @USER_MYSQL = "root"
-    @PASS_MYSQL = ""
+    @PASS_MYSQL = "test1234" # password temporario/random configure o seu.
     @HOST = "localhost"
     @DATABASE_NAME = "ruby_modelo"
     @PORT_MYSQL = 3306
@@ -27,4 +27,21 @@ class MySQL
     return result
   end
 
+end
+
+data = MySQL.new
+result = data.query_test('SELECT * FROM user')
+$first_names = []
+$last_names = []
+$emails = []
+$pass = []
+
+result.each do |user|
+  unless user.nil?
+    # puts user
+    $first_names.push(user['nome'])
+    $last_names.push(user['sobrenome'])
+    $emails.push(user['email'])
+    $pass.push(user['password'])
+  end
 end
